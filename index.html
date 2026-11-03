@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Wassen op zonnestroom</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1f2d3d;--muted:#6b7785;--line:#e3e7ec;
+--n0:var(--line);--n1:#d5dbe1;--n2:#f6d878;--n3:#f2b134;--n4:#8fd19e;--n5:#1baf7a}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--card:#1d232a;--ink:#e8edf2;--muted:#9aa5b1;--line:#2c343d;--n1:#3a434d}}
+*{box-sizing:border-box}body{margin:0;font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:720px;margin:0 auto;padding:18px 16px 40px}
+h1{font-size:22px;margin:0 0 2px}h2{font-size:15px;margin:0 0 8px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.muted{color:var(--muted);font-size:13px}
+.twee{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+@media (max-width:520px){.twee{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.tijd{font-size:34px;font-weight:700;letter-spacing:-.01em;margin:2px 0 8px}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border-radius:99px;font-weight:650;font-size:14px;color:#1f2d3d}
+.uitleg{font-size:14px;color:var(--muted);margin-top:6px}
+.dag{display:grid;grid-template-columns:96px 1fr;gap:6px 12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.dag:last-child{border-bottom:0}.dag .naam{font-weight:650}.dag.onzeker{opacity:.72}
+.rechts{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.strip{grid-column:2;display:grid;grid-template-columns:repeat(14,1fr);gap:2px}
+.strip i{height:14px;border-radius:3px;display:block}.strip i.voorbij{opacity:.35}.strip i.in{outline:2px solid var(--ink);outline-offset:-1px}
+.uren{grid-column:2;display:grid;grid-template-columns:repeat(14,1fr);font-size:10px;color:var(--muted)}
+.uren span{text-align:left}
+.ster{color:#eda100;font-size:13px;font-weight:650;margin-left:6px}
+.schaal{display:grid;gap:8px}.schaal div{display:flex;gap:10px;align-items:flex-start;font-size:14px}.schaal i{margin-top:2px}
+.schaal i{width:26px;height:16px;border-radius:4px;flex:none}
+footer{margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Wassen op zonnestroom</h1>
+  <div class="muted" id="sub">laden…</div>
+  <div class="twee" id="top"></div>
+  <section class="card"><h2>Komende week</h2><div id="week"></div>
+    <p class="muted" id="weeknoot"></p></section>
+  <section class="card" style="margin-top:12px"><h2>Wat betekenen de kleuren?</h2><div class="schaal" id="schaal"></div></section>
+  <footer class="muted">Verwachting op basis van de weersverwachting (Open-Meteo) en de eigen zonnepanelen, elk uur bijgewerkt. Een verwachting, geen garantie.</footer>
+</div>
+<script>
+const kleur=n=>`var(--n${n})`;
+const badge=(n,schaal)=>{const s=schaal.find(x=>x.niveau===n);return `<span class="badge" style="background:${kleur(n)}">${s?s.naam:''}</span>`};
+async function laad(){
+  const d=await (await fetch('data.json?t='+Date.now(),{cache:'no-store'})).json();
+  document.getElementById('sub').textContent=`Beste blok van ${d.venster_uren} uur per dag · bijgewerkt ${d.bijgewerkt}`;
+  const kaart=(dag)=>{const s=d.schaal.find(x=>x.niveau===dag.niveau);
+    return `<div class="card"><h2>${dag.label}</h2>`+(dag.venster?
+      `<div class="tijd">${dag.venster.start} – ${dag.venster.eind}</div>${badge(dag.niveau,d.schaal)}<div class="uitleg">${s.uitleg}</div>`:
+      `<div class="tijd" style="color:var(--muted)">geen goed moment</div><div class="uitleg">${dag.label==='Vandaag'?'Vandaag komt er geen bruikbare zon meer.':'Er wordt vrijwel geen zonnestroom verwacht.'}</div>`)+`</div>`};
+  document.getElementById('top').innerHTML=d.dagen.slice(0,2).map(kaart).join('');
+  const urenKop=`<div></div><div class="uren">${[7,9,11,13,15,17,19].map(h=>`<span style="grid-column:${h-6}">${h}</span>`).join('')}</div>`;
+  document.getElementById('week').innerHTML=d.dagen.map(dag=>{
+    const s=dag.venster?parseInt(dag.venster.start):-1,e=dag.venster?parseInt(dag.venster.eind):-1;
+    const strip=Object.entries(dag.uren).map(([h,n])=>`<i class="${+h>=s&&+h<e?'in':''}${n===0?' voorbij':''}" style="background:${kleur(n)}" title="${h}:00"></i>`).join('');
+    return `<div class="dag${dag.onzeker?' onzeker':''}"><div class="naam">${dag.label}${dag.datum===d.beste_dag?'<span class="ster">★</span>':''}</div>
+      <div class="rechts"><span>${dag.venster?dag.venster.start+' – '+dag.venster.eind:'<span class="muted">geen goed moment</span>'}</span>${dag.venster?badge(dag.niveau,d.schaal):''}</div>
+      <div></div><div class="strip">${strip}</div></div>`}).join('')+`<div class="dag" style="border:0;padding-top:0">${urenKop}</div>`;
+  document.getElementById('weeknoot').innerHTML='★ zonnigste dag van de komende week. Het omlijnde blok is het beste moment; de gekleurde vakjes laten per uur zien hoe zonnig het is (7 tot 21 uur). Dagen verder vooruit zijn onzekerder en staan lichter.';
+  document.getElementById('schaal').innerHTML=[...d.schaal].reverse().map(s=>`<div><i style="background:${kleur(s.niveau)}"></i><span><b>${s.naam}</b> – ${s.uitleg}</span></div>`).join('');
+}
+laad();setInterval(laad,15*60*1000);
+</script>
+</body>
+</html>
