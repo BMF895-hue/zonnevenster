@@ -1,0 +1,236 @@
+{
+ "bijgewerkt": "03-11-2026 17:07",
+ "venster_uren": 2,
+ "beste_dag": "2026-11-04",
+ "dagen": [
+  {
+   "datum": "2026-11-03",
+   "label": "Vandaag",
+   "venster": null,
+   "niveau": 1,
+   "uren": {
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0,
+    "11": 0,
+    "12": 0,
+    "13": 0,
+    "14": 0,
+    "15": 0,
+    "16": 0,
+    "17": 1,
+    "18": 1,
+    "19": 1,
+    "20": 1
+   },
+   "onzeker": false
+  },
+  {
+   "datum": "2026-11-04",
+   "label": "Morgen",
+   "venster": {
+    "start": "11:00",
+    "eind": "13:00"
+   },
+   "niveau": 3,
+   "uren": {
+    "7": 1,
+    "8": 1,
+    "9": 2,
+    "10": 3,
+    "11": 3,
+    "12": 3,
+    "13": 3,
+    "14": 3,
+    "15": 2,
+    "16": 1,
+    "17": 1,
+    "18": 1,
+    "19": 1,
+    "20": 1
+   },
+   "onzeker": false
+  },
+  {
+   "datum": "2026-11-05",
+   "label": "do 5 nov",
+   "venster": {
+    "start": "11:00",
+    "eind": "13:00"
+   },
+   "niveau": 3,
+   "uren": {
+    "7": 1,
+    "8": 1,
+    "9": 2,
+    "10": 3,
+    "11": 3,
+    "12": 3,
+    "13": 3,
+    "14": 3,
+    "15": 2,
+    "16": 1,
+    "17": 1,
+    "18": 1,
+    "19": 1,
+    "20": 1
+   },
+   "onzeker": false
+  },
+  {
+   "datum": "2026-11-06",
+   "label": "vr 6 nov",
+   "venster": {
+    "start": "11:00",
+    "eind": "13:00"
+   },
+   "niveau": 3,
+   "uren": {
+    "7": 1,
+    "8": 1,
+    "9": 2,
+    "10": 3,
+    "11": 3,
+    "12": 3,
+    "13": 3,
+    "14": 3,
+    "15": 2,
+    "16": 1,
+    "17": 1,
+    "18": 1,
+    "19": 1,
+    "20": 1
+   },
+   "onzeker": false
+  },
+  {
+   "datum": "2026-11-07",
+   "label": "za 7 nov",
+   "venster": {
+    "start": "11:00",
+    "eind": "13:00"
+   },
+   "niveau": 3,
+   "uren": {
+    "7": 1,
+    "8": 1,
+    "9": 2,
+    "10": 3,
+    "11": 3,
+    "12": 3,
+    "13": 3,
+    "14": 2,
+    "15": 1,
+    "16": 1,
+    "17": 1,
+    "18": 1,
+    "19": 1,
+    "20": 1
+   },
+   "onzeker": true
+  },
+  {
+   "datum": "2026-11-08",
+   "label": "zo 8 nov",
+   "venster": {
+    "start": "11:00",
+    "eind": "13:00"
+   },
+   "niveau": 2,
+   "uren": {
+    "7": 1,
+    "8": 1,
+    "9": 1,
+    "10": 2,
+    "11": 2,
+    "12": 2,
+    "13": 2,
+    "14": 2,
+    "15": 2,
+    "16": 1,
+    "17": 1,
+    "18": 1,
+    "19": 1,
+    "20": 1
+   },
+   "onzeker": true
+  },
+  {
+   "datum": "2026-11-09",
+   "label": "ma 9 nov",
+   "venster": {
+    "start": "11:00",
+    "eind": "13:00"
+   },
+   "niveau": 3,
+   "uren": {
+    "7": 1,
+    "8": 1,
+    "9": 2,
+    "10": 3,
+    "11": 3,
+    "12": 3,
+    "13": 3,
+    "14": 3,
+    "15": 2,
+    "16": 1,
+    "17": 1,
+    "18": 1,
+    "19": 1,
+    "20": 1
+   },
+   "onzeker": true
+  },
+  {
+   "datum": "2026-11-10",
+   "label": "di 10 nov",
+   "venster": null,
+   "niveau": 1,
+   "uren": {
+    "7": 1,
+    "8": 1,
+    "9": 1,
+    "10": 1,
+    "11": 1,
+    "12": 1,
+    "13": 1,
+    "14": 1,
+    "15": 1,
+    "16": 1,
+    "17": 1,
+    "18": 1,
+    "19": 1,
+    "20": 1
+   },
+   "onzeker": true
+  }
+ ],
+ "schaal": [
+  {
+   "niveau": 1,
+   "naam": "Nauwelijks",
+   "uitleg": "vrijwel geen zonnestroom"
+  },
+  {
+   "niveau": 2,
+   "naam": "Weinig",
+   "uitleg": "alleen genoeg voor kleine apparaten"
+  },
+  {
+   "niveau": 3,
+   "naam": "Redelijk",
+   "uitleg": "wasmachine draait deels op zon"
+  },
+  {
+   "niveau": 4,
+   "naam": "Goed",
+   "uitleg": "genoeg voor de wasmachine of de vaatwasser"
+  },
+  {
+   "niveau": 5,
+   "naam": "Top",
+   "uitleg": "genoeg voor wasmachine én droger"
+  }
+ ]
+}
