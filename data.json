@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "04-11-2026 02:08",
+ "bijgewerkt": "04-11-2026 04:08",
  "venster_uren": 2,
  "beste_dag": "2026-11-05",
  "dagen": [
@@ -7,8 +7,8 @@
    "datum": "2026-11-04",
    "label": "Vandaag",
    "venster": {
-    "start": "11:00",
-    "eind": "13:00"
+    "start": "12:00",
+    "eind": "14:00"
    },
    "niveau": 3,
    "uren": {
