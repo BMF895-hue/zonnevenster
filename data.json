@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "07-11-2026 21:08",
+ "bijgewerkt": "07-11-2026 22:08",
  "venster_uren": 2,
  "beste_dag": "2026-11-09",
  "dagen": [
@@ -30,8 +30,8 @@
    "datum": "2026-11-08",
    "label": "Morgen",
    "venster": {
-    "start": "12:00",
-    "eind": "14:00"
+    "start": "10:00",
+    "eind": "12:00"
    },
    "niveau": 2,
    "uren": {
