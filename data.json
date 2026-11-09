@@ -1,34 +1,11 @@
 {
- "bijgewerkt": "09-11-2026 23:08",
+ "bijgewerkt": "10-11-2026 00:08",
  "venster_uren": 2,
  "beste_dag": "2026-11-14",
  "dagen": [
   {
-   "datum": "2026-11-09",
-   "label": "Vandaag",
-   "venster": null,
-   "niveau": 1,
-   "uren": {
-    "7": 0,
-    "8": 0,
-    "9": 0,
-    "10": 0,
-    "11": 0,
-    "12": 0,
-    "13": 0,
-    "14": 0,
-    "15": 0,
-    "16": 0,
-    "17": 0,
-    "18": 0,
-    "19": 0,
-    "20": 0
-   },
-   "onzeker": false
-  },
-  {
    "datum": "2026-11-10",
-   "label": "Morgen",
+   "label": "Vandaag",
    "venster": {
     "start": "11:00",
     "eind": "13:00"
@@ -54,7 +31,7 @@
   },
   {
    "datum": "2026-11-11",
-   "label": "wo 11 nov",
+   "label": "Morgen",
    "venster": null,
    "niveau": 1,
    "uren": {
@@ -125,7 +102,7 @@
     "19": 1,
     "20": 1
    },
-   "onzeker": true
+   "onzeker": false
   },
   {
    "datum": "2026-11-14",
