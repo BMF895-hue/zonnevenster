@@ -1,5 +1,5 @@
 {
- "bijgewerkt": "18-11-2026 07:08",
+ "bijgewerkt": "18-11-2026 08:08",
  "venster_uren": 2,
  "beste_dag": "2026-11-20",
  "dagen": [
@@ -9,7 +9,7 @@
    "venster": null,
    "niveau": 1,
    "uren": {
-    "7": 1,
+    "7": 0,
     "8": 1,
     "9": 1,
     "10": 1,
